@@ -452,6 +452,7 @@ public class Interface {
 		Semantico semantico = new Semantico();
 		//...
 		lexico.setInput(textoEditor);
+		String tokenErro = "";
 		//...
 		try {
 			sintatico.parse(lexico, semantico);    // tradução dirigida pela sintaxe
@@ -464,7 +465,6 @@ public class Interface {
 			if (e.getMessage() == ScannerConstants.SCANNER_ERROR[0]
 					|| e.getMessage() == ScannerConstants.SCANNER_ERROR[17]
 					|| e.getMessage() == ScannerConstants.SCANNER_ERROR[33]) {
-				String tokenErro = "";
 				for (int i = e.getPosition(); i < textoEditor.length(); i++) {
 					if ((textoEditor.charAt(i) == ' ' || textoEditor.charAt(i) == '\n') && i != 0)
 						break;
